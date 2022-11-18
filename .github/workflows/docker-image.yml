@@ -19,17 +19,17 @@ jobs:
       
     - name: Restore dependencies
       run: | 
-        cd UnqMeterAPI
+        cd UnqMeterAPI.Test
         dotnet restore
       
     - name: Build
       run: |
-        cd UnqMeterAPI
+        cd UnqMeterAPI.Test
         dotnet build --no-restore /p:ContinuousIntegrationBuild=true
       
     - name: Test
       run: |
-        cd UnqMeterAPI
+        cd UnqMeterAPI.Test
         dotnet test --no-build --verbosity normal /p:CollectCoverage=true /p:CoverletOutputFormat=opencover
       
     - name: Codecov
